@@ -60,7 +60,7 @@ public class VendingMachineDao {
     // Loads the inventory from a file into the inventory list.
     private void loadInventory() {
         try {
-            inventory = FileUtility.readFile("/Users/luch/Wile Edge Software Dev Course/GitHubCommits/Vending_Machine/src/Inventory.txt");
+            inventory = FileUtility.readFile("/Users/luch/Wile Edge Software Dev Course/Software Devlopment Training/Engage Excersices/Vending_Machine/src/Inventory.txt");
             if (inventory == null || inventory.isEmpty()) {
                 Throwable cause = new Throwable();
                 throw new FilePersistenceException("Inventory is empty or not found", cause);
@@ -75,7 +75,7 @@ public class VendingMachineDao {
     // Saves the current inventory to a file.
     private void saveInventory() {
         try {
-            FileUtility.writeFile(inventory, "/Users/luch/Wile Edge Software Dev Course/GitHubCommits/Vending_Machine/src/Inventory.txt");
+            FileUtility.writeFile(inventory, "/Users/luch/Wile Edge Software Dev Course/Software Devlopment Training/Engage Excersices/Vending_Machine/src/Inventory.txt");
         } catch (FilePersistenceException e) {
             // Handle error gracefully, e.g., log it, show a user-friendly message, etc.
             System.err.println("Error saving inventory: " + e.getMessage());

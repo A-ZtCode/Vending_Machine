@@ -4,3 +4,4 @@
 2023-08-07T17:12:58.118905 : Item purchased: Coke, Amount: 0.25, Change given: -1.25
 2023-08-07T17:13:09.639748 : Item purchased: Gum, Amount: 0.00, Change given: -0.25
 2023-08-07T17:13:25.568815 : Item purchased: Coffee, Amount: 0.00, Change given: -1.10
+2023-08-07T22:29:22.900049 : Item purchased: Water, Amount: 1.00, Change given: 0.00

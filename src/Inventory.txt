@@ -1,6 +1,6 @@
 Coke,1.50,8
 Pepsi,1.45,8
-Water,1.00,20
+Water,1.00,19
 Snickers,0.75,15
 Chips,0.90,12
 Juice,1.20,9

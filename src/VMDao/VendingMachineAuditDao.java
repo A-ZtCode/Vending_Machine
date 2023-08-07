@@ -3,7 +3,7 @@ package VMDao;
 import File_Utility.FilePersistenceException;
 import File_Utility.FileUtility;
 public class VendingMachineAuditDao {
-    private static final String AUDIT_FILE = "/Users/luch/Wile Edge Software Dev Course/GitHubCommits/Vending_Machine/src/audit_log.txt";
+    private static final String AUDIT_FILE = "/Users/luch/Wile Edge Software Dev Course/Software Devlopment Training/Engage Excersices/Vending_Machine/src/audit_log.txt";
 
     // Write an audit entry to the audit log.
     public void writeAuditEntry(String entry) throws FilePersistenceException {
