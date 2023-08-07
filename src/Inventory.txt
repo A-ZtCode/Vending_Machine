@@ -1,0 +1,10 @@
+Coke,1.50,8
+Pepsi,1.45,8
+Water,1.00,20
+Snickers,0.75,15
+Chips,0.90,12
+Juice,1.20,9
+Coffee,1.10,10
+Tea,0.95,13
+Monster,2.00,5
+Gum,0.25,45
