@@ -62,9 +62,9 @@ public class VendingMachineController {
     }
 
     // To purchase a selected item.
-    private void purchaseItem(String selectedItem) {
+    private void purchaseItem(String selectedItemId) {
         try {
-            Item chosenItem = service.getItem(selectedItem);
+            Item chosenItem = service.getItem(selectedItemId);
             if (chosenItem.getCost() == null) {
                 view.displayErrorMessage("Item cost is missing.");
                 return;
@@ -81,14 +81,14 @@ public class VendingMachineController {
                 amountDeposited = amountDeposited.add(additionalAmount);
             }
 
-            service.vendItem(selectedItem, amountDeposited);
+            service.vendItem(selectedItemId, amountDeposited);
             amountDeposited = amountDeposited.subtract(chosenItem.getCost());
 
             Change change = service.calculateChange(chosenItem.getCost(), amountDeposited);
             view.displayChange(change);
 
             try {
-                auditDao.writeAuditEntry("Item purchased: " + selectedItem + ", Amount: " + amountDeposited + ", Change given: " + change.totalChangeValue());
+                auditDao.writeAuditEntry("Item purchased: " + selectedItemId + ", Amount: " + amountDeposited + ", Change given: " + change.totalChangeValue());
             } catch (FilePersistenceException e) {
                 throw new RuntimeException(e);
             }

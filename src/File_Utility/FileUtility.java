@@ -31,10 +31,12 @@ public class FileUtility {
                     // Skip bad lines
                     continue;
                 }
-                String name = parts[0].trim();
-                BigDecimal cost = new BigDecimal(parts[1].trim());
-                int inventory = Integer.parseInt(parts[2].trim());
-                items.add(new Item(name, cost, inventory));
+
+                String id = parts[0].trim();
+                String name = parts[1].trim();
+                BigDecimal cost = new BigDecimal(parts[2].trim());
+                int inventory = Integer.parseInt(parts[3].trim());
+                items.add(new Item(id, name, cost, inventory));
             }
         } catch(IOException e) {
             Throwable cause = new Throwable();
@@ -56,7 +58,7 @@ public class FileUtility {
 
         for(Item item : items) {
             // Format item details and add to the list
-            lines.add(String.format("%s,%s,%d", item.getName(), item.getCost(), item.getInventory()));
+            lines.add(String.format("%s,%s,%s,%d", item.getId(), item.getName(), item.getCost(), item.getInventory()));
         }
 
         try {

@@ -22,7 +22,7 @@ public class VendingMachineView {
      // Takes the name of the item the user wishes to purchase.
 
     public String getItemSelection() {
-        System.out.println("Enter the name of the item you wish to purchase:");
+        System.out.println("Enter the ID of the item you wish to purchase:");
         return scanner.nextLine();
     }
      // Takes the amount of money the user deposits in GBP.
@@ -43,7 +43,7 @@ public class VendingMachineView {
     public void displayItems(List<Item> items) {
         System.out.println("\nAvailable Items:");
         for (Item item : items) {
-            System.out.println(item.getName() + ": £" + item.getCost() + " (Inventory: " + item.getInventory() + ")");
+            System.out.println(item.getId() + " - " + item.getName() + ": £" + item.getCost() + " (Inventory: " + item.getInventory() + ")");
         }
         System.out.println("\n");  // Adding a newline for better visibility
     }

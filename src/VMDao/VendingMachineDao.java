@@ -20,12 +20,12 @@ public class VendingMachineDao {
     /**
      * Fetches an item from the inventory based on its name.
      *
-     * @param itemName Name of the item to be fetched.
+     * @param itemId Name of the item to be fetched.
      * @return The item if it's found, otherwise returns null.
      */
-    public Item getItem(String itemName) {
+    public Item getItem(String itemId) {
         for (Item item : inventory) {
-            if (item.getName().equals(itemName)) {
+            if (item.getId().equals(itemId)) {
                 return item;
             }
         }

@@ -3,12 +3,14 @@ import java.math.BigDecimal;
 
 public class Item {
     // Fields to store item details
+    private  String id; // Item ID
     private String name; // Item Name
     private BigDecimal cost; // Item Cost
     private int inventory; // Item Inventory count
 
     //  Constructor to initialise an item with given details.
-    public Item(String name, BigDecimal cost, int inventory) {
+    public Item(String id, String name, BigDecimal cost, int inventory) {
+    this.id = this.id;
     this.name = name;
     this.cost = cost;
     this.inventory = inventory;
@@ -16,6 +18,11 @@ public class Item {
     }
 
     //Getters and Setters
+
+    public String getId() {return id;}
+
+    public void setId(String id) {this.id = id;}
+
     public String getName() {
         return name;
     }
