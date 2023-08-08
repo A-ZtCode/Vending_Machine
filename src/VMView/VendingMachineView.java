@@ -47,7 +47,7 @@ public class VendingMachineView {
     public void displayItems(List<Item> items) {
         System.out.println("\nAvailable Items:");
         for (Item item : items) {
-            System.out.println(item.getId() + " - " + item.getName() + ": £" + item.getCost() + " (Inventory: " + item.getInventory() + ")");
+            System.out.printf("%s - %s: £%.2f\n", item.getId(), item.getName(), item.getCost());
         }
         System.out.println("\n");  // Adding a newline for better visibility
     }
@@ -67,10 +67,9 @@ public class VendingMachineView {
     }
 
      // Displays the remaining amount after a transaction.
-
-    public void displayRemainingAmount(BigDecimal remainingAmount) {
-        System.out.println("Remaining Amount: £" + remainingAmount);
-    }
+//    public void displayRemainingAmount(BigDecimal remainingAmount) {
+//        System.out.println("Remaining Amount: £" + remainingAmount);
+//    }
 
     // Displays a goodbye message when the user exits the vending machine.
     public void displayGoodbyeMessage() {

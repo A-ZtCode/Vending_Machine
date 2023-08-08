@@ -7,8 +7,9 @@ import VMView.Change;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 
-    //  This class provides services related to the Vending Machine's operations.
+//  This class provides services related to the Vending Machine's operations.
 public class VendingMachineService {
     private VendingMachineDao dao;
 
@@ -31,7 +32,9 @@ public class VendingMachineService {
 
     // Retrieves all items present in the inventory.
     public List<Item> getAllItems() {
-        return this.items;
+        return this.items.stream()
+                .filter(item -> item.getInventory() > 0)
+                .collect(Collectors.toList());
     }
 
     // Fetches an item from the inventory based on its name.

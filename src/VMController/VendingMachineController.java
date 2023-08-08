@@ -37,28 +37,50 @@ public class VendingMachineController {
         boolean keepRunning = true;
         while(keepRunning) {
             int menuSelection = view.displayMenuAndGetSelection();
-            switch(menuSelection) {
-                case 1:
-                    BigDecimal newDeposit = view.getDepositedAmount();
-                    amountDeposited = amountDeposited.add(newDeposit);
-                    break;
-                case 2:
-                    if (amountDeposited.compareTo(BigDecimal.ZERO) <= 0) {
-                        view.displayErrorMessage("Please deposit money before selecting an item.");
-                    } else {
-                        displayItemsAndPrices();
-                        String selectedItem = view.getItemSelection();
-                        purchaseItem(selectedItem, amountDeposited);
-                    }
-                    break;
-                case 3:
-                    view.displayGoodbyeMessage();  // Display goodbye message
-                    amountDeposited = BigDecimal.ZERO;
-                    keepRunning = false; // This will break out of the loop, ending the program
-                    break;
-                default:
-                    view.displayErrorMessage("Unknown Command!");
+
+            Item potentialItem = service.getItemById(String.valueOf(menuSelection));
+            if (potentialItem != null) {
+                if (amountDeposited.compareTo(BigDecimal.ZERO) <= 0) {
+                    view.displayErrorMessage("Please deposit money before selecting an item.");
+                } else {
+                    purchaseItem(String.valueOf(menuSelection), amountDeposited);
+                    amountDeposited = BigDecimal.ZERO;  // Reset the deposited amount after a purchase
+                }
+            } else {
+                switch(menuSelection) {
+                    case 1:
+                        BigDecimal newDeposit = view.getDepositedAmount();
+                        amountDeposited = amountDeposited.add(newDeposit);
+                        break;
+                    case 2:
+                        if (amountDeposited.compareTo(BigDecimal.ZERO) <= 0) {
+                            view.displayErrorMessage("Please deposit money before selecting an item.");
+                        } else {
+                            displayItemsAndPrices();
+                            String selectedItem = view.getItemSelection();
+                            purchaseItem(selectedItem, amountDeposited);
+                            amountDeposited = BigDecimal.ZERO;  // Reset the deposited amount after a purchase
+                        }
+                        break;
+                    case 3:
+                        if (amountDeposited.compareTo(BigDecimal.ZERO) > 0) {
+                            Change change = new Change(amountDeposited);
+                            view.displayChange(change);
+                            amountDeposited = BigDecimal.ZERO;  // Reset the deposited amount after a purchase
+                        }
+                        view.displayGoodbyeMessage();
+                        keepRunning = false;
+                        break;
+                    default:
+                        view.displayErrorMessage("Unknown Command!");
+                }
             }
+//            Item potentialItem = service.getItemById(String.valueOf(menuSelection));
+//            if (potentialItem != null) {
+//                purchaseItem(String.valueOf(menuSelection), amountDeposited);
+//            } else if (menuSelection != 1 && menuSelection != 2 && menuSelection != 3) {
+
+//            }
         }
     }
 
@@ -93,11 +115,9 @@ public class VendingMachineController {
 
             // Vend the item and update the deposited  amount
             service.vendItem(selectedItemId, amountDeposited);
-            amountDeposited = getRemainingAmount(amountDeposited, chosenItem.getCost());
-
-            // Display remaining amount after purchase
-            System.out.println("Remaining amount: £" + amountDeposited);
             view.displayChange(change);
+//            amountDeposited = getRemainingAmount(amountDeposited, chosenItem.getCost());
+
 
             try {
                 auditDao.writeAuditEntry("Item purchased: " + selectedItemId + ", Amount: " + amountDeposited + ", Change given: " + change.totalChangeValue());
@@ -107,7 +127,13 @@ public class VendingMachineController {
         } catch(InsufficientFundsException | NoItemInventoryException e) {
             view.displayErrorMessage(e.getMessage());
         }
+
+        System.out.println("Thank you for your purchase!");
+        System.out.println("\n");  // Adding a newline for better visibility
+//        view.displayWelcomeMessage();
+        displayItemsAndPrices();
     }
+
 
     // Process the deposited amount ensuring it's valid.
     private void processDepositedAmount(BigDecimal amountDeposited) {
