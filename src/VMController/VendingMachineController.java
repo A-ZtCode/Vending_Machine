@@ -25,7 +25,15 @@ public class VendingMachineController {
         this.auditDao = auditDao;
     }
 
-    public void run() {
+    public BigDecimal getRemainingAmount(BigDecimal depositedAmount, BigDecimal itemCost) {
+        return depositedAmount.subtract(itemCost);
+    }
+
+    public void run() throws FilePersistenceException {
+        service.loadItems();
+        view.displayWelcomeMessage();
+        displayItemsAndPrices();
+
         boolean keepRunning = true;
         while(keepRunning) {
             int menuSelection = view.displayMenuAndGetSelection();
@@ -33,13 +41,15 @@ public class VendingMachineController {
                 case 1:
                     BigDecimal newDeposit = view.getDepositedAmount();
                     amountDeposited = amountDeposited.add(newDeposit);
-                    view.displayRemainingAmount(amountDeposited);  // Display remaining amount after deposit
                     break;
                 case 2:
-                    displayItemsAndPrices();
-                    String selectedItem = view.getItemSelection();
-                    purchaseItem(selectedItem);
-                    view.displayRemainingAmount(amountDeposited);  // Display remaining amount after purchase
+                    if (amountDeposited.compareTo(BigDecimal.ZERO) <= 0) {
+                        view.displayErrorMessage("Please deposit money before selecting an item.");
+                    } else {
+                        displayItemsAndPrices();
+                        String selectedItem = view.getItemSelection();
+                        purchaseItem(selectedItem, amountDeposited);
+                    }
                     break;
                 case 3:
                     view.displayGoodbyeMessage();  // Display goodbye message
@@ -53,24 +63,22 @@ public class VendingMachineController {
     }
 
     // Display all items and their prices.
-    private void processDepositedAmount() {
-    }
-
     private void displayItemsAndPrices() {
         List<Item> items = service.getAllItems();
         view.displayItems(items);
     }
 
     // To purchase a selected item.
-    private void purchaseItem(String selectedItemId) {
+    private void purchaseItem(String selectedItemId, BigDecimal amountDeposited ){
         try {
-            Item chosenItem = service.getItem(selectedItemId);
-            if (chosenItem.getCost() == null) {
-                view.displayErrorMessage("Item cost is missing.");
+            Item chosenItem = service.getItemById(selectedItemId);
+
+            if (chosenItem == null) {
+                view.displayErrorMessage("Item not found in inventory.");
                 return;
             }
-            else if (chosenItem == null) {
-                view.displayErrorMessage("Item not found in inventory.");
+            if (chosenItem.getCost() == null) {
+                view.displayErrorMessage("Item cost is missing.");
                 return;
             }
 
@@ -80,11 +88,15 @@ public class VendingMachineController {
                 BigDecimal additionalAmount = view.getDepositedAmount();
                 amountDeposited = amountDeposited.add(additionalAmount);
             }
-
-            service.vendItem(selectedItemId, amountDeposited);
-            amountDeposited = amountDeposited.subtract(chosenItem.getCost());
-
+            // Calculate the change before updating the deposited amount
             Change change = service.calculateChange(chosenItem.getCost(), amountDeposited);
+
+            // Vend the item and update the deposited  amount
+            service.vendItem(selectedItemId, amountDeposited);
+            amountDeposited = getRemainingAmount(amountDeposited, chosenItem.getCost());
+
+            // Display remaining amount after purchase
+            System.out.println("Remaining amount: £" + amountDeposited);
             view.displayChange(change);
 
             try {

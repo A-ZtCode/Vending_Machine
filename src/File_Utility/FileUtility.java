@@ -27,7 +27,7 @@ public class FileUtility {
 
             for(String line : lines) {
                 String[] parts = line.split(","); // Split the line by comma
-                if(parts.length < 3) {
+                if(parts.length < 4) {
                     // Skip bad lines
                     continue;
                 }

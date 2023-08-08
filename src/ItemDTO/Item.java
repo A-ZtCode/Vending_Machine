@@ -10,7 +10,7 @@ public class Item {
 
     //  Constructor to initialise an item with given details.
     public Item(String id, String name, BigDecimal cost, int inventory) {
-    this.id = this.id;
+    this.id = id;
     this.name = name;
     this.cost = cost;
     this.inventory = inventory;

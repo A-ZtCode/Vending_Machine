@@ -9,6 +9,10 @@ import java.util.Scanner;
 public class VendingMachineView {
     private Scanner scanner = new Scanner(System.in);
 
+     public void displayWelcomeMessage() {
+         System.out.println("Welcome to the Vending Machine!");
+     }
+
      // Displays the main menu of the vending machine and takes the user's selection.
 
     public int displayMenuAndGetSelection() {

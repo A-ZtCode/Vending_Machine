@@ -6,3 +6,10 @@
 2023-08-07T17:13:25.568815 : Item purchased: Coffee, Amount: 0.00, Change given: -1.10
 2023-08-07T22:29:22.900049 : Item purchased: Water, Amount: 1.00, Change given: 0.00
 2023-08-07T22:31:37.614700 : Item purchased: Water, Amount: 2.00, Change given: 1.00
+2023-08-08T11:27:00.837819 : Item purchased: 010, Amount: 1.75, Change given: 1.50
+2023-08-08T11:27:25.481472 : Item purchased: 006, Amount: 0.55, Change given: -0.65
+2023-08-08T11:42:02.025061 : Item purchased: 010, Amount: 1.75, Change given: 1.50
+2023-08-08T11:49:47.388558 : Item purchased: 001, Amount: 0.50, Change given: -1.00
+2023-08-08T13:01:28.324287 : Item purchased: 010, Amount: 1.75, Change given: 1.50
+2023-08-08T13:13:35.663602 : Item purchased: 010, Amount: 1.75, Change given: 1.50
+2023-08-08T13:38:22.849208 : Item purchased: 010, Amount: 1.75, Change given: 1.75
