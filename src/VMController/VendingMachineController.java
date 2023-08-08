@@ -12,6 +12,7 @@ import VMView.VendingMachineView;
 import java.math.BigDecimal;
 import java.util.List;
 
+// This class controls the Vending Machine operations
 public class VendingMachineController {
     private VendingMachineService service;
     private VendingMachineView view;

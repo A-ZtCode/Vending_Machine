@@ -1,6 +1,8 @@
 package ItemDTO;
 import java.math.BigDecimal;
 
+
+// This class relates to the Items in the Vending Machine Inventory - Items to be vended.
 public class Item {
     // Fields to store item details
     private  String id; // Item ID

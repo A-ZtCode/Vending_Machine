@@ -9,6 +9,8 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// This class relates to the Inventory file of the Vending Machine.
 public class FileUtility {
 
     /**

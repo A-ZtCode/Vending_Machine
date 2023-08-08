@@ -77,7 +77,7 @@ public class VendingMachineDao {
         try {
             FileUtility.writeFile(inventory, "/Users/luch/Wile Edge Software Dev Course/Software Devlopment Training/Engage Excersices/Vending_Machine/src/Inventory.txt");
         } catch (FilePersistenceException e) {
-            // Handle error gracefully, e.g., log it, show a user-friendly message, etc.
+            // Handle error gracefully, e.g.,  show a user-friendly message.
             System.err.println("Error saving inventory: " + e.getMessage());
         }
     }

@@ -37,7 +37,7 @@ public class VendingMachineService {
                 .collect(Collectors.toList());
     }
 
-    // Fetches an item from the inventory based on its name.
+    // Fetches an item from the inventory based on its  ID.
     public Item getItemById(String itemId) {
         return this.items.stream()
                 .filter(item -> item.getId().equalsIgnoreCase(itemId))
@@ -48,7 +48,7 @@ public class VendingMachineService {
         /**
          * Facilitates the vending of a specified item.
          *
-         * @param itemId The name of the item.
+         * @param itemId The ID of the item.
          * @param depositedAmount The amount deposited by the user.
          * @throws InsufficientFundsException If the deposited amount is less than the item's cost.
          * @throws NoItemInventoryException If the item is not available in stock.

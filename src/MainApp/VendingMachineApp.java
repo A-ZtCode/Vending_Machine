@@ -8,6 +8,7 @@ import VMService.NoItemInventoryException;
 import VMService.VendingMachineService;
 import VMView.VendingMachineView;
 
+// This is the Vending Machine main Application
 public class VendingMachineApp {
     public static void main(String[] args) {
         try {
