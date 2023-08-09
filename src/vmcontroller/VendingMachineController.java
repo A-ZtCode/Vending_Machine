@@ -1,4 +1,4 @@
-package VMController;
+package vmcontroller;
 
 import file_utility.FilePersistenceException;
 import itemdto.Item;

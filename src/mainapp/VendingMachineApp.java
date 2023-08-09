@@ -1,6 +1,6 @@
 package mainapp;
 
-import VMController.VendingMachineController;
+import vmcontroller.VendingMachineController;
 import vmdao.VendingMachineAuditDao;
 import vmdao.VendingMachineDao;
 import vmservice.VendingMachineService;
