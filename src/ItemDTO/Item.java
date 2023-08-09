@@ -16,7 +16,6 @@ public class Item {
     this.name = name;
     this.cost = cost;
     this.inventory = inventory;
-
     }
 
     //Getters and Setters

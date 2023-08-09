@@ -66,10 +66,6 @@ public class VendingMachineView {
                 "\n1p Coins: " + change.getOnePence());
     }
 
-     // Displays the remaining amount after a transaction.
-//    public void displayRemainingAmount(BigDecimal remainingAmount) {
-//        System.out.println("Remaining Amount: £" + remainingAmount);
-//    }
 
     // Displays a goodbye message when the user exits the vending machine.
     public void displayGoodbyeMessage() {

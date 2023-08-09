@@ -76,12 +76,6 @@ public class VendingMachineController {
                         view.displayErrorMessage("Unknown Command!");
                 }
             }
-//            Item potentialItem = service.getItemById(String.valueOf(menuSelection));
-//            if (potentialItem != null) {
-//                purchaseItem(String.valueOf(menuSelection), amountDeposited);
-//            } else if (menuSelection != 1 && menuSelection != 2 && menuSelection != 3) {
-
-//            }
         }
     }
 
