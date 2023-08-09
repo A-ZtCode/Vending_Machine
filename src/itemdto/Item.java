@@ -1,4 +1,4 @@
-package ItemDTO;
+package itemdto;
 import java.math.BigDecimal;
 
 

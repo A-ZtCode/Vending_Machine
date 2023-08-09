@@ -1,7 +1,7 @@
-package VMDao;
+package vmdao;
 
-import File_Utility.FilePersistenceException;
-import File_Utility.FileUtility;
+import file_utility.FilePersistenceException;
+import file_utility.FileUtility;
 
     // This class creates and writes to an Audit file regarding  the Vending Machine's operations.
 public class VendingMachineAuditDao {

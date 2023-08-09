@@ -1,9 +1,9 @@
-package VMService;
-import File_Utility.FilePersistenceException;
-import File_Utility.FileUtility;
-import ItemDTO.Item;
-import VMDao.VendingMachineDao;
-import VMView.Change;
+package vmservice;
+import file_utility.FilePersistenceException;
+import file_utility.FileUtility;
+import itemdto.Item;
+import vmdao.VendingMachineDao;
+import vmview.Change;
 
 import java.math.BigDecimal;
 import java.util.List;

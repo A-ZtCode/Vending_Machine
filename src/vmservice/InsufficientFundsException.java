@@ -1,4 +1,4 @@
-package VMService;
+package vmservice;
 
 public class InsufficientFundsException extends Exception {
 

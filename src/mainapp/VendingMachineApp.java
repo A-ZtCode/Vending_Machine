@@ -1,12 +1,10 @@
-package MainApp;
+package mainapp;
 
 import VMController.VendingMachineController;
-import VMDao.VendingMachineAuditDao;
-import VMDao.VendingMachineDao;
-import VMService.InsufficientFundsException;
-import VMService.NoItemInventoryException;
-import VMService.VendingMachineService;
-import VMView.VendingMachineView;
+import vmdao.VendingMachineAuditDao;
+import vmdao.VendingMachineDao;
+import vmservice.VendingMachineService;
+import vmview.VendingMachineView;
 
 // This is the Vending Machine main Application
 public class VendingMachineApp {

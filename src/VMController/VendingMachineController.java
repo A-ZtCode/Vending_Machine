@@ -1,13 +1,13 @@
 package VMController;
 
-import File_Utility.FilePersistenceException;
-import ItemDTO.Item;
-import VMDao.VendingMachineAuditDao;
-import VMService.InsufficientFundsException;
-import VMService.NoItemInventoryException;
-import VMService.VendingMachineService;
-import VMView.Change;
-import VMView.VendingMachineView;
+import file_utility.FilePersistenceException;
+import itemdto.Item;
+import vmdao.VendingMachineAuditDao;
+import vmservice.InsufficientFundsException;
+import vmservice.NoItemInventoryException;
+import vmservice.VendingMachineService;
+import vmview.Change;
+import vmview.VendingMachineView;
 
 import java.math.BigDecimal;
 import java.util.List;

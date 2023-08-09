@@ -1,5 +1,5 @@
-package VMView;
-import ItemDTO.Item;
+package vmview;
+import itemdto.Item;
 
 import java.math.BigDecimal;
 import java.util.List;

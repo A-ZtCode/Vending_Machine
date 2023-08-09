@@ -1,7 +1,7 @@
-package VMDao;
-import File_Utility.FilePersistenceException;
-import File_Utility.FileUtility;
-import ItemDTO.Item;
+package vmdao;
+import file_utility.FilePersistenceException;
+import file_utility.FileUtility;
+import itemdto.Item;
 
 import java.util.ArrayList;
 import java.util.List;

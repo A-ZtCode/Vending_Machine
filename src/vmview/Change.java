@@ -1,4 +1,4 @@
-package VMView;
+package vmview;
 import java.math.BigDecimal;
 
 // This class represents the change returned to a user in coin.
